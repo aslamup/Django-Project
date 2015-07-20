@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LOGIN APP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static "css/home.css" %}">
+  <script src="{% static "js/home.js" %}"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="page-header">
+    <h1>User-Details Entering..</h1>      
+  </div>
+     
+</div>
+
+</body>
+</html>
+
+<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="/login/" method="post" role="form" style="display: block;">
+									<div class="form-group"> {% csrf_token %}
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" value="" required>
+									</div>
+									
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required >
+									</div>
+
+									{% if error == 'error' %}
+
+															<div class="alert alert-danger" role="alert">
+  									<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  									<span class="sr-only">Error:</span>
+  									Email and Password doesn't match !
+									</div>
+						{% endif %}	
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="/register/" method="post" role="form" style="display: none;">
+									<div class="form-group"> {% csrf_token %}
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" value="" required>
+									</div>
+
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="2" class="form-control" placeholder="Email" value="" required>
+									</div>
+									
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" value="" required>
+									</div>
+									
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ 
+</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="home.js"></script>
+
+    
+</html>
